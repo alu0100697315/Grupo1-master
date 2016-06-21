@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@id/fondo"
+    tools:context=".Humedad">
+
+    <TextView
+        android:layout_width="390dp"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Humedad"
+        android:id="@+id/textView4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:background="#b3c7cf"
+        android:paddingLeft="5dp"
+        android:paddingTop="15dp"
+        android:layout_alignParentTop="false"
+        android:typeface="sans" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView android:id="@+id/noSensor"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="102dp"
+            android:textStyle="bold|normal"
+            android:textIsSelectable="false"
+            android:textSize="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+</LinearLayout>
