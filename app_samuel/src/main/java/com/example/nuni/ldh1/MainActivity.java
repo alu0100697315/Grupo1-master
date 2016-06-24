@@ -20,7 +20,7 @@ import android.widget.TextView;
 import java.util.List;
 
 /**
- * Prueba
+ *
  * @author SAMUEL RAFAEL DONIZ DOMINGUEZ
  * @author MIGUEL AURELIO GARCIA GONZALEZ
  * @author HECTOR JOSE RAVELO GARCIA
@@ -33,6 +33,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
 
+    /**
+     * Creacion NFC
+     * Samuel Doniz
+     * @button botonNFC
+     */
+    Button botonNFC;
     /**
      * Creación de los botones en la interfaz principal
      *
@@ -99,7 +105,13 @@ public class MainActivity extends AppCompatActivity{
         /**
          * @author GRUPO1
          */
-
+        botonNFC = (Button) findViewById(R.id.button11);
+        botonNFC.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nfc(v);
+            }
+        });
         /**
          * Se declara boton para el sensor ACELEROMETRO
          */
@@ -249,7 +261,14 @@ public class MainActivity extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 
-
+    /**
+     * Samuel Doniz
+     * @param view
+     */
+    public void nfc (View view){
+        Intent i = new Intent(this,Nfc.class);
+        startActivity(i);
+    }
     /**********************************************************************************************
      * Grupo1
      *********************************************************************************************/
@@ -259,6 +278,8 @@ public class MainActivity extends AppCompatActivity{
      *
      * @param view
      */
+
+
     public void acelometer(View view) {
         Intent i = new Intent(this, Acelerometro.class);
         startActivity(i);
