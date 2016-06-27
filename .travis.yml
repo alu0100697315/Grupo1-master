@@ -1,9 +1,4 @@
 language: android
-android:
-  components:
-    - build-tools-21.1.2
-
-before_script:
+script:
   - chmod +x gradlew
 
-script: "./gradlew build"

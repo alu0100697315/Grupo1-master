@@ -21,7 +21,7 @@ package com.example.nuni.ldh1;
  */
 public class Nfc extends AppCompatActivity {
 
-   /* private*/ TextView text; //se crea un TextView para insertar si tiene o no NFC
+    TextView text; //se crea un TextView para insertar si tiene o no NFC
     private final static String sinNFC = "Su dispositivo no tiene NFC"; //string con el texto a mostrar
     private final static String conNFC = "Su dispositivo tiene NFC";
 
@@ -56,28 +56,7 @@ public class Nfc extends AppCompatActivity {
            }
     }
 
-    /*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
 
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-    */
-    /*
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-*/
     @Override
     public void onStart() {
         super.onStart();
@@ -94,8 +73,7 @@ public class Nfc extends AppCompatActivity {
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
-
-       // public PlaceholderFragment() {}
+        
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
