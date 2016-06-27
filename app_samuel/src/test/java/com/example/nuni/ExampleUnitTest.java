@@ -1,15 +1,11 @@
-package com.example.nuni.ldh11;
+package com.example.nuni;
 
-import org.junit.Test;
+import android.nfc.NfcAdapter;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
 
-/**
- * To work on unit tests, switch the Test Artifact in the Build Variants view.
- */
-public class ExampleUnitTest {
-    @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+public class ExampleUnitTest extends TestCase{
+    public void testNFC(){
+
     }
 }
