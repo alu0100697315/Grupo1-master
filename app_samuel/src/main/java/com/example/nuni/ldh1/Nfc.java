@@ -3,9 +3,7 @@ package com.example.nuni.ldh1;
 /**
  * Created by Samuel on 21/06/2016.
  */
-    import android.net.Uri;
-    import android.support.v7.app.ActionBarActivity;
-    import android.support.v7.app.ActionBar;
+
     import android.support.v4.app.Fragment;
     import android.nfc.NfcAdapter;
     import android.os.Bundle;
@@ -17,51 +15,39 @@ package com.example.nuni.ldh1;
     import android.view.ViewGroup;
     import android.widget.TextView;
     import android.widget.Toast;
-    import android.os.Build;
 
-    import com.google.android.gms.appindexing.Action;
-    import com.google.android.gms.appindexing.AppIndex;
-    import com.google.android.gms.common.api.GoogleApiClient;
 
 public class Nfc extends AppCompatActivity {
-    private TextView text;
-    private final static String sinNFC = "Su dispositivo no tiene NFC";
+
+    private TextView text; //se crea un TextView para insertar si tiene o no NFC
+    private final static String sinNFC = "Su dispositivo no tiene NFC"; //string con el texto a mostrar
     private final static String conNFC = "Su dispositivo tiene NFC";
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    //private GoogleApiClient client;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_nfc);
-        text = (TextView) findViewById(R.id.textView6);
+        text = (TextView) findViewById(R.id.textView6); //se asigna el text al textView6 creado
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
         }
 
 
-        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-
+        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this); //variable de tipo NfcAdapter
            if (nfcAdapter == null) {
                text.setText(sinNFC);
 
            }else {
                text.setText(conNFC);
                if (nfcAdapter != null && nfcAdapter.isEnabled()) {
+                   //empleamos un toast para mostrar por pantalla durante un tiempo la notificacion
                     Toast.makeText(this, "NFC ACTIVADO", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(this, "NFC NO ACTIVADO ", Toast.LENGTH_LONG).show();
                }
            }
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        //client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
 
@@ -88,41 +74,11 @@ public class Nfc extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        //client.connect();
-      //  Action viewAction = Action.newAction(
-        //        Action.TYPE_VIEW, // TODO: choose an action type.
-          //      "Nfc Page", // TODO: Define a title for the content shown.
-            //    // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-             //   Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
-               // Uri.parse("android-app://com.example.nuni.ldh1/http/host/path")
-       // );
-        //AppIndex.AppIndexApi.start(client, viewAction);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-       // Action viewAction = Action.newAction(
-         //       Action.TYPE_VIEW, // TODO: choose an action type.
-                //"Nfc Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                //Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
-                //Uri.parse("android-app://com.example.nuni.ldh1/http/host/path")
-       // );
-       // AppIndex.AppIndexApi.end(client, viewAction);
-        //client.disconnect();
     }
 
     /**

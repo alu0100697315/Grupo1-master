@@ -14,4 +14,19 @@
         android:textStyle="normal"
         android:layout_gravity="center"
         android:gravity="center" />
+
+    <TextView
+        android:layout_width="390dp"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="NFC"
+        android:id="@+id/textView22"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:background="#b3c7cf"
+        android:paddingLeft="5dp"
+        android:paddingTop="15dp"
+        android:layout_alignParentTop="false"
+        android:typeface="sans" />
 </FrameLayout>
