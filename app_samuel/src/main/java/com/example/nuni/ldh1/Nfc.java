@@ -24,13 +24,14 @@ public class Nfc extends AppCompatActivity {
    /* private*/ TextView text; //se crea un TextView para insertar si tiene o no NFC
     private final static String sinNFC = "Su dispositivo no tiene NFC"; //string con el texto a mostrar
     private final static String conNFC = "Su dispositivo tiene NFC";
-    NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+
 
     @Override
     /**
      *
      */
     protected void onCreate(Bundle savedInstanceState) {
+        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_nfc);
         text = (TextView) findViewById(R.id.textView6); //se asigna el text al textView6 creado
