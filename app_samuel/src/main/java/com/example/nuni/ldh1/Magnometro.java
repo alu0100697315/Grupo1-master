@@ -57,17 +57,21 @@ public class Magnometro extends AppCompatActivity implements SensorEventListener
      * X = evento.values[0]
      * Y = evento.values[1]
      * Z = evento.values[2]
-     * @param evento
+     * @param event
      */
 
     @Override
-    public void onSensorChanged(SensorEvent evento) {
-        this.magneticView.setText(String.format("Coordenada X: %f\nCoordenada Y: %f\nCoordenada Z: %f", new Object[]{evento.values[0],evento.values[1],evento.values[2]}));
+    public void onSensorChanged(SensorEvent event) {
+        float x,y,z;
+        x = event.values[0];
+        y = event.values[1];
+        z = event.values[2];
+        magneticView.setText("Coordenada X:" + x + "Coordenada Y:" + y + "Coordenada Z:" + z );
     }
 
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
+        //nada
     }
 }

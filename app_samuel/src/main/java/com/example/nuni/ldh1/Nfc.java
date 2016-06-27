@@ -9,22 +9,27 @@ package com.example.nuni.ldh1;
     import android.os.Bundle;
     import android.support.v7.app.AppCompatActivity;
     import android.view.LayoutInflater;
-    import android.view.Menu;
-    import android.view.MenuItem;
+    //import android.view.Menu;
+    //import android.view.MenuItem;
     import android.view.View;
     import android.view.ViewGroup;
     import android.widget.TextView;
     import android.widget.Toast;
 
-
+/**
+ *
+ */
 public class Nfc extends AppCompatActivity {
 
-    private TextView text; //se crea un TextView para insertar si tiene o no NFC
+   /* private*/ TextView text; //se crea un TextView para insertar si tiene o no NFC
     private final static String sinNFC = "Su dispositivo no tiene NFC"; //string con el texto a mostrar
     private final static String conNFC = "Su dispositivo tiene NFC";
-
+    NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
     @Override
+    /**
+     *
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_nfc);
@@ -35,22 +40,22 @@ public class Nfc extends AppCompatActivity {
         }
 
 
-        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this); //variable de tipo NfcAdapter
+        //variable de tipo NfcAdapter
            if (nfcAdapter == null) {
                text.setText(sinNFC);
 
            }else {
                text.setText(conNFC);
-               if (nfcAdapter != null && nfcAdapter.isEnabled()) {
+               if (nfcAdapter.isEnabled()) {
                    //empleamos un toast para mostrar por pantalla durante un tiempo la notificacion
                     Toast.makeText(this, "NFC ACTIVADO", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(this, "NFC NO ACTIVADO ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "NFC DESACTIVADO ", Toast.LENGTH_LONG).show();
                }
            }
     }
 
-
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -58,7 +63,8 @@ public class Nfc extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
+    */
+    /*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -70,15 +76,17 @@ public class Nfc extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+*/
     @Override
     public void onStart() {
         super.onStart();
+
     }
 
     @Override
     public void onStop() {
         super.onStop();
+
     }
 
     /**
@@ -86,8 +94,7 @@ public class Nfc extends AppCompatActivity {
      */
     public static class PlaceholderFragment extends Fragment {
 
-        public PlaceholderFragment() {
-        }
+       // public PlaceholderFragment() {}
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {

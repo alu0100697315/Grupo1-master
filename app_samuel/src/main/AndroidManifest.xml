@@ -34,7 +34,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Podometro"
-            android:label="@string/title_activity_giroscopio"
+            android:label="@string/title_activity_podometro"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Giroscopio"
