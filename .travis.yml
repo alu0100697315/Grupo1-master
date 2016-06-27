@@ -1,4 +1,6 @@
 language: android
+script:
+    	- chmod +x ./gradlew
 android:
   components:
-  - build-tools-22.0.1
+    	- build-tools-23.0.1
