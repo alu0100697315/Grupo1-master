@@ -2,7 +2,6 @@ package com.example.nuni.ldh1;
 
 
 import android.content.Context;
-import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -13,11 +12,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import java.util.List;
 
 
 /**
- * @class  Podometro
  */
 public class Podometro extends AppCompatActivity implements SensorEventListener {
 
@@ -27,7 +24,6 @@ public class Podometro extends AppCompatActivity implements SensorEventListener 
      * declaracion de las variables ha emplear usando la biblioteca de Sensores
       */
     private TextView textView;
-    private TextView texto;
     private SensorManager sensorManager;
 
     private Sensor mStepCounterSensor;
@@ -36,7 +32,6 @@ public class Podometro extends AppCompatActivity implements SensorEventListener 
 
     /**
      *
-     * @param savedInstanceState
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +44,6 @@ public class Podometro extends AppCompatActivity implements SensorEventListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_podometro);
         textView = (TextView) findViewById(R.id.texto);
-        texto = (TextView) findViewById(R.id.noSensor);
 
         sensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
         mStepCounterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
@@ -58,8 +52,6 @@ public class Podometro extends AppCompatActivity implements SensorEventListener 
 
     /**
      *
-     * @param menu
-     * @return
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -70,8 +62,6 @@ public class Podometro extends AppCompatActivity implements SensorEventListener 
 
     /**
      *
-     * @param item
-     * @return
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -90,7 +80,6 @@ public class Podometro extends AppCompatActivity implements SensorEventListener 
 
     /**
      * onSensorChanged
-     * @param event
      */
     @Override
     public void onSensorChanged(SensorEvent event) {
@@ -121,11 +110,11 @@ public class Podometro extends AppCompatActivity implements SensorEventListener 
 
     /**
      *
-     * @param sensor
-     * @param i
      */
     @Override
-    public void onAccuracyChanged(Sensor sensor, int i) {}
+    public void onAccuracyChanged(Sensor sensor, int i) {
+        //nada
+    }
 
 
     /**

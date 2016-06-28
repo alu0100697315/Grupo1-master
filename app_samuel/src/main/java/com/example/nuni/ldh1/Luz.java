@@ -6,11 +6,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.TextView;
 
 /**
@@ -28,13 +24,13 @@ public class Luz extends AppCompatActivity implements SensorEventListener {
 
     /**Sensor de  luminosidad**/
     private Sensor sensor;
-    private final static String sensorFail = "Su dispositivo no tiene el sensor: LUZ";
+    private static final  String FALLOSENSOR = "Su dispositivo no tiene el sensor: LUZ";
 
     /**
      * Método que se ejecuta al lanzar la actividad.
      * Inicializa el SensorManager, el escuchador del sensor y establece el mensaje de error si no
      * se encuentra el sensor de luz.
-     * @param savedInstanceState Representa un buffer en el que se guarda el estado de la aplicación
+     * @ savedInstanceState Representa un buffer en el que se guarda el estado de la aplicación
      */
 
     @Override
@@ -52,7 +48,7 @@ public class Luz extends AppCompatActivity implements SensorEventListener {
 
         //Si no se encuentra el sensor, se muestra un mensaje de error
         if (sensor == null) {
-            lightTxt.setText(sensorFail);
+            lightTxt.setText(FALLOSENSOR);
         }
     }
 
@@ -63,31 +59,31 @@ public class Luz extends AppCompatActivity implements SensorEventListener {
      */
 
     @Override
-    public void onSensorChanged(SensorEvent event) {
-        synchronized (this){
-            switch (event.sensor.getType()){
-                case Sensor.TYPE_LIGHT:
-                    float light = event.values[0];
-                    lightTxt.setText("Luz: " + String.valueOf(light));
+    public void onSensorChanged(SensorEvent event)
+    {
+        synchronized (this)
+        {
+            if (event.sensor.getType() == Sensor.TYPE_LIGHT)
+            {
+                float light = event.values[0];
+                lightTxt.setText("Luz: " + light);
 
-                    int color;
-                    if (light > 255) {
-                        color = 255;
-                    }
-                    else {
-                        color = (int) light;
-                    }
+                int color;
+                if (light > 255) {
+                    color = 255;
+                }
+                else {
+                    color = (int) light;
+                }
 
-                    lightTxt.setBackgroundColor(Color.rgb(255 - color, 255 - color, 255 - color));
-                    lightTxt.setTextColor(Color.rgb(color, color, color));
-                    break;
-                default:
-                    System.out.print("default");
-                    break;
+                lightTxt.setBackgroundColor(Color.rgb(255 - color, 255 - color, 255 - color));
+                lightTxt.setTextColor(Color.rgb(color, color, color));
             }
         }
     }
 
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {}
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        //nada
+    }
 }

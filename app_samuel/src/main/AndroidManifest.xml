@@ -41,6 +41,10 @@
             android:label="@string/title_activity_giroscopio"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".Barometro"
+            android:label="@string/title_activity_barometro"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Humedad"
             android:label="@string/title_activity_humedad"
             android:theme="@style/AppTheme.NoActionBar" />

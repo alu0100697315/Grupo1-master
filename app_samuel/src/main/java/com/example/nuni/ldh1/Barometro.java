@@ -1,4 +1,5 @@
-import android.app.Activity;
+package com.example.nuni.ldh1;
+
 import android.app.Service;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -9,14 +10,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.widget.TextView;
 
-import com.example.nuni.ldh1.R;
 
-/**
- * Created by Miguel_Garcia on 10/12/2015.
- */
+
 public class Barometro extends AppCompatActivity implements SensorEventListener{
 
     private TextView pressView;
+
+    SensorManager sensorManager;
+
+    private Sensor sensor;
+
+    private static final String FALLOSENSOR = "Tu dispositivo no tiene el sensor: BARÓMETRO.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,28 +29,20 @@ public class Barometro extends AppCompatActivity implements SensorEventListener{
 
         pressView = (TextView) findViewById(R.id.pressTxt);
 
-        SensorManager snsMgr = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
+        sensorManager = (SensorManager)getSystemService(Service.SENSOR_SERVICE);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
 
-        Sensor ps = snsMgr.getDefaultSensor(Sensor.TYPE_PRESSURE);
-
-        snsMgr.registerListener(this, ps, SensorManager.SENSOR_DELAY_UI);
+        if (sensor == null) {
+            pressView.setText(FALLOSENSOR);
+        }
     }
 
     @Override
     protected void onResume() {
-        // TODO Auto-generated method stub
+
         super.onResume();
-        SensorManager snsMgr = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
-
-        Sensor ps = snsMgr.getDefaultSensor(Sensor.TYPE_PRESSURE);
-
-        snsMgr.registerListener(this, ps, SensorManager.SENSOR_DELAY_UI);
-    }
-
-    @Override
-    protected void onStart() {
-        // TODO Auto-generated method stub
-        super.onStart();
+        sensorManager = (SensorManager)getSystemService(Service.SENSOR_SERVICE);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
     }
 
     @Override
@@ -58,14 +54,12 @@ public class Barometro extends AppCompatActivity implements SensorEventListener{
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // TODO Auto-generated method stub
-
+        //Método no implementado por el Grupo 1.
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        // TODO Auto-generated method stub
         float[] values = event.values;
-        pressView.setText("" + values[0]);
+        pressView.setText(" " + values[0]);
     }
 }

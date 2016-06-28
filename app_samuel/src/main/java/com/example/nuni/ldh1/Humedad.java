@@ -22,7 +22,7 @@ public class Humedad extends Activity implements SensorEventListener {
     Sensor sensor;
     SensorManager sensorM;
 
-    private final static String falloSensor = "Su dispositivo no tiene el sensor: HUMEDAD.";
+    private static final  String FALLOSENSOR = "Su dispositivo no tiene el sensor: HUMEDAD.";
 
     /**
      *       Primero se le especifica a la clase HumedadActivity que implemente el SensorEventListener, esto
@@ -48,7 +48,7 @@ public class Humedad extends Activity implements SensorEventListener {
 
         // Si no detectamos el sensor, mostramos el mensaje de fallo
         if (sensor == null) {
-            texto.setText(falloSensor);
+            texto.setText(FALLOSENSOR);
         }
     }
 
@@ -67,43 +67,27 @@ public class Humedad extends Activity implements SensorEventListener {
     @Override
     public void onSensorChanged(SensorEvent evento) {
         float valor=Float.parseFloat(String.valueOf(evento.values[0]));
-        int t_red =(int) (255);
-        int t_green =(int)(255);
-        int t_blue =(int)(255);
-        int color = Color.rgb(t_red, t_green, t_blue);
+        int red = 255;
+        int green = 255;
+        int blue = 255;
+        int color = Color.rgb(red, green, blue);
 
-        if(valor <= 25)
-        {
-            t_red = 255;
-            t_green = 0;
-            t_blue = 0;
+        if(valor <= 25) {
             fondo.setBackgroundColor(color);
             texto.setText(""+valor);
         }
         else
-        if(valor <= 50 && valor > 25)
-        {
-            t_red = 255;
-            t_green = 0;
-            t_blue = 85;
+        if(valor <= 50 && valor > 25) {
             fondo.setBackgroundColor(color);
             texto.setText("" + valor);
         }
         else
-        if(valor <= 75 && valor > 50)
-        {
-            t_red = 85;
-            t_green = 0;
-            t_blue = 255;
+        if(valor <= 75 && valor > 50) {
             fondo.setBackgroundColor(color);
             texto.setText("" + valor);
         }
         else
-        if(valor > 75 && valor <= 100)
-        {
-            t_red = 0;
-            t_green = 0;
-            t_blue = 255;
+        if(valor > 75 && valor <= 100) {
             fondo.setBackgroundColor(color);
             texto.setText(""+valor);
         }
@@ -117,5 +101,7 @@ public class Humedad extends Activity implements SensorEventListener {
      * @param accuracy
      */
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {}
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        //nada
+    }
 }

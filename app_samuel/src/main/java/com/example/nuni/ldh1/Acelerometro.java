@@ -1,11 +1,7 @@
 package com.example.nuni.ldh1;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -16,7 +12,7 @@ import android.widget.TextView;
 
 
 /**
- * @class  Acelerometro
+ *   Acelerometro
  */
 
 public  class Acelerometro extends AppCompatActivity implements SensorEventListener {
@@ -30,7 +26,8 @@ public  class Acelerometro extends AppCompatActivity implements SensorEventListe
     private Sensor sensor;
 
     //En caso de que el teléfono no diponga del sensor aparecerá este mensaje
-    private final static String falloSensor = "Su dispositivo no tiene el sensor: ACELERÓMETRO.";
+    private static final String FALLOSENSOR = "Su dispositivo no tiene el sensor: ACELERÓMETRO.";
+    private static final String M_S = " m/s ";
 
     /**
      * On create.
@@ -51,7 +48,7 @@ public  class Acelerometro extends AppCompatActivity implements SensorEventListe
 
         // Si no detectamos el sensor, mostramos el mensaje de fallo
         if (sensor == null) {
-            texto.setText(falloSensor);
+            texto.setText(FALLOSENSOR);
         }
 
     }
@@ -107,7 +104,7 @@ public  class Acelerometro extends AppCompatActivity implements SensorEventListe
         /**
          * @variable texto muestra los valores de los tres ejes en metros/segundos.
          */
-        texto.setText("\n" + " Valor de X: " + x +" m/s "+ "\n" + " Valor de Y: " + y +" m/s "+  "\n" + " Valor de Z: " + z + " m/s ");
+        texto.setText("\n" + " Valor de X: " + x + M_S + "\n" + " Valor de Y: " + y + M_S +  "\n" + " Valor de Z: " + z + M_S);
 
 
     }
@@ -119,7 +116,9 @@ public  class Acelerometro extends AppCompatActivity implements SensorEventListe
      * @param accuracy the accuracy
      */
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) { }
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        //vacio
+    }
 
     /**
      * On resume. Registro del listener para conocer si se ha minimizado la actividad

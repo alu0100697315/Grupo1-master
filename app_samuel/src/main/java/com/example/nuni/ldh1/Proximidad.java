@@ -6,15 +6,10 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.List;
 
 public class Proximidad extends AppCompatActivity implements SensorEventListener {
 
@@ -25,18 +20,16 @@ public class Proximidad extends AppCompatActivity implements SensorEventListener
     Sensor sensor;
     SensorManager sensorM;
 
-    private final static String falloSensor = "Su dispositivo no tiene el sensor : PROXIMIDAD.";
+    private static final String FALLOSENSOR = "Su dispositivo no tiene el sensor : PROXIMIDAD.";
 
     /**
      *       Primero se le especifica a la clase ProximidadActivity que implemente el SensorEventListener, esto
      *  se hace para manipular los eventos del sensor y ejecutar nuestro código cuando cambie.
-     *  @param savedInstanceState
      *
      */
 
     /**
      * Constructor de la clase Activity,
-     * @param savedInstanceState guarda una instancia de la actividad pasada por parametro
      */
 
     @Override
@@ -51,7 +44,7 @@ public class Proximidad extends AppCompatActivity implements SensorEventListener
 
         // Si no detectamos el sensor, mostramos el mensaje de fallo
         if (sensor == null) {
-           texto.setText(falloSensor);
+           texto.setText(FALLOSENSOR);
         }
     }
     /**
@@ -60,17 +53,16 @@ public class Proximidad extends AppCompatActivity implements SensorEventListener
      * que devuelve es menor o igual que 2.5 se activa la App cambiando el fondo de la misma a un color aleatorio,
      * en caso contrario se deja el color negro en la pantalla.
      *
-     * @param evento
      */
 
     @Override
     public void onSensorChanged(SensorEvent evento) {
         float valor=Float.parseFloat(String.valueOf(evento.values[0]));
         if (valor <= 2.5) {
-            int t_red =(int) (Math.random()*255+1);
-            int t_green =(int)(Math.random()*255+1);
-            int t_blue =(int)(Math.random()*255+1);
-            int color = Color.rgb(t_red, t_green, t_blue);
+            int red =(int) (Math.random()*255+1);
+            int green =(int)(Math.random()*255+1);
+            int blue =(int)(Math.random()*255+1);
+            int color = Color.rgb(red, green, blue);
             fondo.setBackgroundColor(color);
         }
         else{
@@ -82,6 +74,6 @@ public class Proximidad extends AppCompatActivity implements SensorEventListener
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
+   //nada
     }
 }

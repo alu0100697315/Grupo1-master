@@ -1,7 +1,8 @@
 package com.example.nuni;
 
-import android.test.suitebuilder.TestSuiteBuilder;
-import junit.framework.Test;
+import android.app.Application;
+import android.test.ApplicationTestCase;
+
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>

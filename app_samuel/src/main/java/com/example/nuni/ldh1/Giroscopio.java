@@ -5,19 +5,15 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
-import com.example.nuni.ldh1.R;
+
 
 /**
- * @class  Giroscopio
+ *
  */
 public  class Giroscopio extends AppCompatActivity implements SensorEventListener {
     /** The texto. */
@@ -29,13 +25,13 @@ public  class Giroscopio extends AppCompatActivity implements SensorEventListene
     /** The giroscopio. */
     private Sensor sensor;
 
-    private final static String falloSensor = "Tu dispositivo no tiene el sensor: GIROSCÓPIO.";
+    private static final  String FALLOSENSOR = "Tu dispositivo no tiene el sensor: GIROSCÓPIO.";
 
 
     /**
      * On create.
      *
-     * @param savedInstanceState the saved instance state
+     * savedInstanceState the saved instance state
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +45,7 @@ public  class Giroscopio extends AppCompatActivity implements SensorEventListene
 
         // Si no detectamos el sensor, mostramos el mensaje de fallo
         if (sensor == null) {
-            texto.setText(falloSensor);
+            texto.setText(FALLOSENSOR);
         }
 
     }
@@ -108,7 +104,9 @@ public  class Giroscopio extends AppCompatActivity implements SensorEventListene
      * @param accuracy the accuracy
      */
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {}
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        //nada
+    }
 
     /**
      * On resume.

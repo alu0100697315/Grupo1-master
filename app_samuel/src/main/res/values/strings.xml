@@ -10,6 +10,7 @@
     <string name="title_activity_termometro">Termometro</string>
     <string name="title_activity_podometro">Podometro</string>
     <string name="title_activity_luz">Luz</string>
+    <string name="title_activity_barometro">Barometro</string>
     <string name="title_activity_pulsometro">Pulsometro</string>
     <string name="title_activity_main2">Main2Activity</string>
 </resources>

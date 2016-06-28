@@ -9,8 +9,6 @@ package com.example.nuni.ldh1;
     import android.os.Bundle;
     import android.support.v7.app.AppCompatActivity;
     import android.view.LayoutInflater;
-    //import android.view.Menu;
-    //import android.view.MenuItem;
     import android.view.View;
     import android.view.ViewGroup;
     import android.widget.TextView;
@@ -22,8 +20,8 @@ package com.example.nuni.ldh1;
 public class Nfc extends AppCompatActivity {
 
     TextView text; //se crea un TextView para insertar si tiene o no NFC
-    private final static String sinNFC = "Su dispositivo no tiene NFC"; //string con el texto a mostrar
-    private final static String conNFC = "Su dispositivo tiene NFC";
+    private static final  String SNFC = "Su dispositivo no tiene NFC"; //string con el texto a mostrar
+    private static final  String CNFC = "Su dispositivo tiene NFC";
 
 
     @Override
@@ -43,10 +41,10 @@ public class Nfc extends AppCompatActivity {
 
         //variable de tipo NfcAdapter
            if (nfcAdapter == null) {
-               text.setText(sinNFC);
+               text.setText(SNFC);
 
            }else {
-               text.setText(conNFC);
+               text.setText(CNFC);
                if (nfcAdapter.isEnabled()) {
                    //empleamos un toast para mostrar por pantalla durante un tiempo la notificacion
                     Toast.makeText(this, "NFC ACTIVADO", Toast.LENGTH_LONG).show();
@@ -57,23 +55,11 @@ public class Nfc extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onStart() {
-        super.onStart();
-
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-    }
-
     /**
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
-        
+
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {

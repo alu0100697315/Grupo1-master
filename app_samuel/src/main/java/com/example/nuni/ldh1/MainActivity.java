@@ -1,12 +1,8 @@
 package com.example.nuni.ldh1;
 
 import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -28,7 +24,6 @@ import java.util.List;
  */
 
 /**
- * @class MainActivity
  */
 
 public class MainActivity extends AppCompatActivity{
@@ -36,7 +31,6 @@ public class MainActivity extends AppCompatActivity{
     /**
      * Creacion NFC
      * Samuel Doniz
-     * @button botonNFC
      */
     Button botonNFC;
     /**
@@ -47,21 +41,14 @@ public class MainActivity extends AppCompatActivity{
     /**
      * Grupo 1
      *
-     * @button botonAcelerometro
-     * @button botonGiroscopio
-     * @button botonPodometro
-     * @button botonBarometro
      */
     Button botonAcelerometro;
     Button botonGiroscopio;
     Button botonPodometro;
+    Button botonBarometro;
 
     /**
      * Grupo 2
-     *
-     * @button botonLUz
-     * @button botonTermometro
-     * @button botonPulsometro
      */
     Button botonLuz;
     Button botonTermometro;
@@ -69,10 +56,6 @@ public class MainActivity extends AppCompatActivity{
 
     /**
      * Grupo 3
-     *
-     * @button botonHumedad
-     * @button botonProximidad
-     * @button botonMagnometro
      */
     Button botonHumedad;
     Button botonProximidad;
@@ -99,13 +82,20 @@ public class MainActivity extends AppCompatActivity{
 
         List<Sensor> mList = sensorManager.getSensorList(Sensor.TYPE_ALL);
         for (int i=1 ; i<mList.size() ; i++) {
-            texto.append("\n" + mList.get(i).getName() /*+ "\n" + mList.get(i).getVendor() + "\n" + mList.get(i).getVersion()*/);
+            texto.append("\n" + mList.get(i).getName());
         }
 
         /**
          * @author GRUPO1
+         * Se declara el boton para el adaptador NFC
          */
+
+        /**
+         *
+         */
+
         botonNFC = (Button) findViewById(R.id.button11);
+
         botonNFC.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +103,7 @@ public class MainActivity extends AppCompatActivity{
             }
         });
         /**
-         * Se declara boton para el sensor ACELEROMETRO
+         *
          */
         botonAcelerometro = (Button) findViewById(R.id.button);
         botonAcelerometro.setOnClickListener(new Button.OnClickListener() {
@@ -124,9 +114,20 @@ public class MainActivity extends AppCompatActivity{
         });
 
         /**
-         * Se declara el boton para el sensor GIROSCOPIO
+         *
          */
+        botonBarometro = (Button) findViewById(R.id.button4);
+        botonBarometro.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                barometro(v);
+            }
+        });
 
+
+        /**
+         *
+         */
         botonGiroscopio = (Button) findViewById(R.id.button2);
         botonGiroscopio.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -136,7 +137,7 @@ public class MainActivity extends AppCompatActivity{
         });
 
         /**
-         * Se declara boton para el sensor PODOMETRO
+         *
          */
         botonPodometro = (Button) findViewById(R.id.button3);
         botonPodometro.setOnClickListener(new Button.OnClickListener() {
@@ -147,10 +148,8 @@ public class MainActivity extends AppCompatActivity{
         });
 
 
-
-
         /**
-         * Se declara boton para el sensor LUZ
+         *
          */
         botonLuz = (Button) findViewById(R.id.button8);
         botonLuz.setOnClickListener(new Button.OnClickListener() {
@@ -176,14 +175,11 @@ public class MainActivity extends AppCompatActivity{
          */
         botonPulsometro = (Button) findViewById(R.id.button10);
         botonPulsometro.setOnClickListener(new Button.OnClickListener() {
-            @Override
+
             public void onClick(View v) {
                 pulsometro(v);
             }
         });
-
-
-
 
         /**
          * @author Grupo3
@@ -230,8 +226,7 @@ public class MainActivity extends AppCompatActivity{
     /**
      * Añade elementos a la barra de acción si está presente
      *
-     * @param menu
-     * @return true
+     *
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -243,8 +238,8 @@ public class MainActivity extends AppCompatActivity{
     /**
      * Coge el id , comprueba si está en los ajustes, si está return true, si no, retorna el item seleccionado en las opciones
      *
-     * @param item
-     * @return
+     *
+     *
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -263,7 +258,7 @@ public class MainActivity extends AppCompatActivity{
 
     /**
      * Samuel Doniz
-     * @param view
+     *
      */
     public void nfc (View view){
         Intent i = new Intent(this,Nfc.class);
@@ -276,7 +271,7 @@ public class MainActivity extends AppCompatActivity{
     /**
      * Función que crea el intent con la actividad del sensor acelerometro y la inicia.
      *
-     * @param view
+     *
      */
 
 
@@ -288,7 +283,7 @@ public class MainActivity extends AppCompatActivity{
     /**
      * Función que crea el intent con la actividad del sensor giroscopio y la inicia.
      *
-     * @param view
+     *
      */
     public void giroscopio(View view) {
         Intent i = new Intent(this, Giroscopio.class);
@@ -298,13 +293,16 @@ public class MainActivity extends AppCompatActivity{
     /**
      * Función que crea el intent con la actividad del sensor podometro y la inicia.
      *
-     * @param view
+     *
      */
     public void podometro(View view) {
         Intent i = new Intent(this, Podometro.class);
         startActivity(i);
     }
-
+    public void barometro(View view) {
+        Intent i = new Intent(this, Barometro.class);
+        startActivity(i);
+    }
     /*******************************************************************************************
      * Grupo 2
      ******************************************************************************************/
@@ -312,7 +310,7 @@ public class MainActivity extends AppCompatActivity{
     /**
      * Función que crea el intent con la actividad del sensor humedad y la inicia.
      *
-     * @param view
+     *
      */
     public void luz(View view) {
         Intent i = new Intent(this, Luz.class);
@@ -322,7 +320,7 @@ public class MainActivity extends AppCompatActivity{
     /**
      * Función que crea el intent con la actividad del sensor humedad y la inicia.
      *
-     * @param view
+     *
      */
     public void termometro(View view) {
         Intent i = new Intent(this, Termometro.class);
@@ -332,7 +330,7 @@ public class MainActivity extends AppCompatActivity{
     /**
      * Función que crea el intent con la actividad del sensor humedad y la inicia.
      *
-     * @param view
+     *
      */
     public void pulsometro(View view) {
         Intent i = new Intent(this, Pulsometro.class);
@@ -347,7 +345,7 @@ public class MainActivity extends AppCompatActivity{
     /**
      * Función que crea el intent con la actividad del sensor humedad y la inicia.
      *
-     * @param view
+     *
      */
     public void humedad(View view) {
         Intent i = new Intent(this, Humedad.class);
@@ -357,7 +355,7 @@ public class MainActivity extends AppCompatActivity{
     /**
      * Función que crea el intent con la actividad del sensor proximidad y la inicia.
      *
-     * @param view
+     *
      */
     public void proximidad(View view) {
         Intent i = new Intent(this, Proximidad.class);
@@ -367,7 +365,7 @@ public class MainActivity extends AppCompatActivity{
     /**
      * Función que crea el intent con la actividad del sensor magnometro y la inicia.
      *
-     * @param view
+     *
      */
    public void magnometro(View view) {
         Intent i = new Intent(this, Magnometro.class);
