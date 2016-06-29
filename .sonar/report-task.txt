@@ -1,5 +1,5 @@
-projectKey=Grupo1
+projectKey=App_Samuel
 serverUrl=http://localhost:9000
-dashboardUrl=http://localhost:9000/dashboard/index/Grupo1
-ceTaskId=AVWXjl9fq2ySm19x1nMu
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AVWXjl9fq2ySm19x1nMu
+dashboardUrl=http://localhost:9000/dashboard/index/App_Samuel
+ceTaskId=AVWb7P8N1U1sq9R97tf2
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVWb7P8N1U1sq9R97tf2
