@@ -1,4 +1,6 @@
 language: android
+components:
+        - android-23
 before_install:
     - chmod +x gradlew
     - wget http://services.gradle.org/distributions/gradle-2.10-bin.zip
