@@ -1,6 +1,7 @@
 language: android
 before_install:
     - chmod +x gradlew
-install: gradle assemble
+install: gradle_2.10 assemble
+        
 script: 
     - gradle check
