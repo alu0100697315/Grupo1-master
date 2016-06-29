@@ -27,6 +27,7 @@ sonarqube {
     properties {
         property "sonar.projectName", "App_Samuel"
         property "sonar.host.url", "http://localhost:9000"
-        properties["sonar.sources"] += "app/src"
+        property "sonar.projectVersion", "1.0"
+        properties["sonar.sources"] += "app_samuel/src"
     }
 }
