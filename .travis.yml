@@ -1,4 +1,6 @@
 language: android
-script: 
+before_install:
     - chmod +x gradlew
+install: gradle assemble
+script: 
     - gradle check
