@@ -13,4 +13,9 @@ before_install:
     - export PATH=$GRADLE_HOME/bin:$PATH
 
 install: gradle assemble
-script: gradle check
+script: 
+    - gradle check
+    - ./gradlew clean assemble check generateReleaseJavadoc --info --stacktrace
+
+after_success:
+    - .utility/publish-javadoc.sh
