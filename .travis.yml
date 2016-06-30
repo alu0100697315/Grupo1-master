@@ -12,6 +12,12 @@ before_install:
     - export GRADLE_HOME=$PWD/gradle-2.10
     - export PATH=$GRADLE_HOME/bin:$PATH
 
+env:
+  global:
+    	- secure: beaeed0dcf5d6b3af6bbd481ae0a5d94cc4c4e87
 install: gradle assemble
 script: 
     - gradle check
+after_success:
+	- /initiate-publish.sh
+	- /push-javadoc-to-gh-pages.sh
