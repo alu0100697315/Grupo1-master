@@ -15,7 +15,7 @@ package com.example.nuni.ldh1;
     import android.widget.Toast;
 
 /**
- *
+ * Clase que implementa el uso de NFC
  */
 public class Nfc extends AppCompatActivity {
 
@@ -26,10 +26,12 @@ public class Nfc extends AppCompatActivity {
 
     @Override
     /**
-     *
+     * Metodo onCreate.
+     * Se llama en la creación de la actividad
+     * Se crean las distintas variables y se hacen las funciones principales del programa
      */
     protected void onCreate(Bundle savedInstanceState) {
-        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this); //variable de tipo NfcAdapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_nfc);
         text = (TextView) findViewById(R.id.textView6); //se asigna el text al textView6 creado
@@ -38,18 +40,15 @@ public class Nfc extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
         }
 
-
-        //variable de tipo NfcAdapter
            if (nfcAdapter == null) {
-               text.setText(SNFC);
-
+               text.setText(SNFC); //en caso de que no tenga NFC
            }else {
                text.setText(CNFC);
                if (nfcAdapter.isEnabled()) {
                    //empleamos un toast para mostrar por pantalla durante un tiempo la notificacion
-                    Toast.makeText(this, "NFC ACTIVADO", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "NFC ACTIVADO", Toast.LENGTH_LONG).show(); //EL ADAPTADOR ESTA ACTIVADO
                 } else {
-                    Toast.makeText(this, "NFC DESACTIVADO ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "NFC DESACTIVADO ", Toast.LENGTH_LONG).show(); //EL ADAPTADOR ESTA DESACTIVADO
                }
            }
     }
@@ -60,11 +59,13 @@ public class Nfc extends AppCompatActivity {
      */
     public static class PlaceholderFragment extends Fragment {
 
-
+        /**
+         * inflate instancia un xml para poder añadirlo a una jerarquía de vistas.
+         *
+         */
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.content_nfc, container, false);
-            return rootView;
+            return inflater.inflate(R.layout.content_nfc, container, false);
         }
     }
 
