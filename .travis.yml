@@ -15,7 +15,7 @@ before_install:
 install: gradle assemble
 script: 
     - gradle check
-    - ./gradlew clean assemble check generateReleaseJavadoc --info --stacktrace
+    #- ./gradlew clean assemble check generateReleaseJavadoc --info --stacktrace
 
-after_success:
-    - .utility/publish-javadoc.sh
+#after_success:
+#    - .utility/publish-javadoc.sh
