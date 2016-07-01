@@ -25,9 +25,18 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+configurations {
+    pegdown
+}
 
-task myJavadocs(type: Javadoc) {
+dependencies {
+    pegdown 'ch.raffael.pegdown-doclet:pegdown-doclet:1.1.1'
+}
+javadoc {
     source = sourceSets.main.allJava
+    destinationDir = reporting.file("rest-api-docs")
+    options.docletpath = configurations.pegdown.files.asType(List)
+    options.doclet = 'ch.raffael.doclets.pegdown.PegdownDoclet'
 }
 sonarqube {
     properties {

@@ -15,4 +15,4 @@ install: gradle assemble
 script: 
     - gradle check   
 after_success:
-    - ./gradlew myJavadocs
+    - ./gradlew javadoc
