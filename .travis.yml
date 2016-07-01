@@ -13,5 +13,6 @@ before_install:
     - export PATH=$GRADLE_HOME/bin:$PATH
 install: gradle assemble
 script: 
-    - gradle check
-    
+    - gradle check   
+after_success:
+    - ./gradlew javaDoc
