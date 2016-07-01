@@ -26,17 +26,17 @@ task clean(type: Delete) {
 }
 
 configurations {
-    pegdown
+    jaxDoclet
 }
 
 dependencies {
-    pegdown 'ch.raffael.pegdown-doclet:pegdown-doclet:1.1.1'
+    jaxDoclet 'ch.raffael.pegdown-doclet:pegdown-doclet:1.1.1'
 }
-javadoc {
+task generateRestApiDocs(type: Javadoc) {
     source = sourceSets.main.allJava
     destinationDir = reporting.file("rest-api-docs")
-    options.docletpath = configurations.pegdown.files.asType(List)
-    options.doclet = 'ch.raffael.doclets.pegdown.PegdownDoclet'
+    options.docletpath = configurations.jaxDoclet.files.asType(List)
+    options.doclet = "com.lunatech.doclets.jax.jaxrs.JAXRSDoclet"
 }
 sonarqube {
     properties {
