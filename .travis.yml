@@ -15,5 +15,5 @@ install: gradle assemble
 script: 
     - gradle check   
 after_success:
-    - ./gradlew generateRestApiDocs
+    - gradle generateRestApiDocs
 
