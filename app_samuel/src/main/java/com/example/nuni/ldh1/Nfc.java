@@ -31,11 +31,11 @@ public class Nfc extends AppCompatActivity {
      * Se crean las distintas variables y se hacen las funciones principales del programa
      */
     protected void onCreate(Bundle savedInstanceState) {
-        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this); //variable de tipo NfcAdapter
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_nfc);
         text = (TextView) findViewById(R.id.textView6); //se asigna el text al textView6 creado
-
+        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this); //variable de tipo NfcAdapter
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
         }
@@ -61,7 +61,6 @@ public class Nfc extends AppCompatActivity {
 
         /**
          * inflate instancia un xml para poder añadirlo a una jerarquía de vistas.
-         *
          */
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -69,6 +68,25 @@ public class Nfc extends AppCompatActivity {
         }
     }
 
+    /**
+     * Funcion creada para los test
+     */
+    public static String getCNFC() {
+        return CNFC;
+    }
+
+    /**
+     * Funcion creada para los test
+     */
+    public boolean  getContent() {
+        if ((R.layout.content_nfc) != 0) return true;
+        else return false;
+    }
+
+    public boolean TestContainer(){
+        if ((R.id.container)!= 0) return true;
+        else return false;
+    }
 }
 
 

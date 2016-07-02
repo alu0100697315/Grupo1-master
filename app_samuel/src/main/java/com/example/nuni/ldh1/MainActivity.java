@@ -264,6 +264,10 @@ public class MainActivity extends AppCompatActivity{
         Intent i = new Intent(this,Nfc.class);
         startActivity(i);
     }
+
+    public Button getBotonNFC() {
+        return botonNFC;
+    }
     /**********************************************************************************************
      * Grupo1
      *********************************************************************************************/
